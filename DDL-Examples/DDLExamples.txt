@@ -1,0 +1,17 @@
+SHOW TABLES;
+DESCRIBE customers;
+DESCRIBE shipments;
+ALTER TABLE customers
+DROP purchase;
+DESCRIBE customers;
+#customer_id
+DESCRIBE shipments;
+#shipment_id
+CREATE TABLE orders(
+order_id int PRIMARY KEY,
+fk_customer_id int NOT NULL,
+fk_shipment_id int NOT NULL,
+number_of_shipments int NOT NULL,
+FOREIGN KEY(fk_customer_id) REFERENCES customers(customer_id),
+FOREIGN KEY(fk_shipment_id) REFERENCES shipments(shipment_id));
+DESCRIBE orders;
